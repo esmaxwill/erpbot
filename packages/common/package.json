@@ -1,0 +1,22 @@
+{
+  "name": "@repo/common",
+  "description": "Common utilities",
+  "scripts": {
+    "build": "tsc"
+  },
+  "dependencies": {
+    "ulid-workers": "^2.1.0"
+  },
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "exports": {
+    ".": "./src/index.ts"
+  },
+  "devDependencies": {
+    "@repo/eslint-config": "workspace:*",
+    "@repo/typescript-config": "workspace:*",
+    "@types/node": "^20.12.8",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.4.5"
+  }
+}

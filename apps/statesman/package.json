@@ -1,0 +1,32 @@
+{
+  "name": "@repo/statesman",
+  "description": "State Management",
+  "type": "module",
+  "scripts": {
+    "dev": "wrangler dev ./src/index.ts --local",
+    "deploy": "wrangler deploy --minify src/index.ts",
+    "db:generate": "drizzle-kit generate:pg",
+    "db:migrate": "tsx migrate.ts",
+    "logs": "wrangler tail"
+  },
+  "dependencies": {
+    "@neondatabase/serverless": "^0.9.1",
+    "@repo/common": "workspace:*",
+    "better-sqlite3": "^9.6.0",
+    "drizzle-orm": "^0.30.10",
+    "hono": "^4.3.0",
+    "tsx": "^4.9.0",
+    "zod": "^3.23.6"
+  },
+  "devDependencies": {
+    "@cloudflare/vitest-pool-workers": "^0.1.19",
+    "@cloudflare/workers-types": "^4.20240208.0",
+    "@repo/eslint-config": "workspace:*",
+    "@repo/typescript-config": "workspace:*",
+    "@types/node": "^20.12.8",
+    "dotenv": "^16.4.5",
+    "drizzle-kit": "^0.20.17",
+    "postgres": "^3.4.4",
+    "typescript": "5.4.3"
+  }
+}

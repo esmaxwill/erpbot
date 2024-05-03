@@ -1,0 +1,11 @@
+name = "randobot-banker"
+
+compatibility_date = "2024-04-03"
+compatibility_flags = ["nodejs_compat"]
+
+workers_dev = false
+
+[dev]
+port = 8082
+
+

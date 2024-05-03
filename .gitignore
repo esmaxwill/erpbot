@@ -4,13 +4,14 @@
 node_modules
 .pnp
 .pnp.js
-
+.wrangler
 # Local env files
 .env
 .env.local
 .env.development.local
 .env.test.local
 .env.production.local
+.dev.vars
 
 # Testing
 coverage

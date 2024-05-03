@@ -1,0 +1,14 @@
+name = "randobot-statesman"
+
+workers_dev = false
+
+compatibility_date = "2024-04-03"
+compatibility_flags = ["nodejs_compat"]
+
+[dev]
+port = 8081
+
+[[services]]
+binding = "STATESMAN"
+service = "randobot-statesman"
+entrypoint = "Statesman"
