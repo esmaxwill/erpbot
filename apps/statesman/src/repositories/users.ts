@@ -1,6 +1,12 @@
-import * as schema from "../schema";
 
-import { getClient } from "../db";
+import { WorkerEntrypoint } from "cloudflare:workers";
+import { eq } from "drizzle-orm/sql";
+
+
+import * as schema from "../schema";
+import type { Database, Env } from '../types';
+import { Client } from "@neondatabase/serverless";
+import { drizzle } from 'drizzle-orm/neon-serverless';
 
 export interface UserType {
   id: string;
@@ -8,43 +14,56 @@ export interface UserType {
   venmo?: string;
 }
 
-export class UserRepository {
-  static async createUser(ctx:any, env: any, user: UserType): Promise<any> {
-    console.log(user);
-    
-    const { db, client } = getClient(env);
-    client.connect();
+export class Users extends WorkerEntrypoint<Env> {
+  private database: Database;
+  private client: Client;
+
+  constructor(ctx: ExecutionContext, env: Env) {
+    super(ctx, env);
+    this.client = new Client(env.DATABASE_URL);
+    this.database = drizzle(this.client, {schema});
+  }
+  
+  setupDb() {
+    this.env.client = new Client(this.env.DATABASE_URL);
+    this.database = drizzle(this.client, {schema});
+  }
+
+  begin(): Database {
+    this.client.connect();
+    return this.database;
+  }
+
+  end() {
+    this.ctx.waitUntil(this.client.end());
+  }
+
+  async createUser(user: UserType): Promise<any> {
+    const db = this.begin();
     const result = await db.insert(schema.users).values(user);
-    ctx.waitUntil(client.end());
+    this.end();
     return result.rows[0];
   }
 
-  // static async getById(env: any, id: string): Promise<any> {
-  //   const db = drizzle(env.DB, { schema });
-  //   const result = await db
-  //     .select()
-  //     .from(schema.users)
-  //     .where(eq(schema.users.id, id));
-  //   return result.length > 0 ? result[0] : undefined;
-  // }
+  async getById(id: string): Promise<any> {
+    const db = this.begin();
+    const result = await db
+    .select()
+    .from(schema.users)
+    .where(eq(schema.users.id, id));
+    
+    this.end();
+    return result[0];
+  }
 
-  // static async getByName(env, username: string): Promise<any> {
-  //   const db = drizzle(env.DB, { schema });
-  //   const result = await db
-  //     .select()
-  //     .from(schema.users)
-  //     .where(eq(schema.users.username, username));
-  //   return result.length > 0 ? result[0] : undefined;
-  // }
-
-  // static async getOrCreate(env, user: UserType): Promise<any> {
-  //   const existing = await this.getById(env, user.id);
-  //   console.log(existing);
-
-  //   if (!existing) {
-  //     return await this.createUser(env, user);
-  //   } else {
-  //     return existing;
-  //   }
-  // }
+  async getByName(username: string): Promise<any> {
+    const db = this.begin();
+    const result = await db
+    .select()
+    .from(schema.users)
+    .where(eq(schema.users.username, username));
+    
+    this.end();
+    return result;
+  }
 }

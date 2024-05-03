@@ -92,14 +92,20 @@ app.get("/callback", async (c: Context) => {
   if (!code || !state) {
     throw new HTTPException(400, { message: "Invalid code or state" });
   }
+
   const response = await exchangeCode(c, code, state);
   const userInfo = await getUserInfo(c, response);
-  console.log(userInfo);
 
-  const registerResponse = await c.env.STATESMAN.createUser({id: userInfo.user.id, username: userInfo.user.username})
-  console.log(registerResponse);
+  try {
+    await c.env.Users.createUser({id: userInfo.user.id, username: userInfo.user.username});
+  }
+  
+  catch(error) {
+    console.log("Caught error: ", error);
+  }
 
   const cookieData = Buffer.from(JSON.stringify({...userInfo.user})).toString("base64url");
+
   await setSignedCookie(c, COOKIE_NAME, cookieData, c.env.COOKIE_SECRET, {
     prefix: 'secure', // or `host`
   })

@@ -9,11 +9,6 @@ declare module "hono" {
 
 const app = new Hono<{ Bindings: Bindings }>();
 
-
-app.use("*", async (c: Context, next) => {
-  await next();
-});
-
 app.route("/auth", auth.default);
 
 

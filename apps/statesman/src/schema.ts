@@ -1,12 +1,12 @@
-import { index, pgTable, text } from 'drizzle-orm/pg-core';
+import { index, pgTable, text } from "drizzle-orm/pg-core";
 
 export const users = pgTable(
   "users",
   {
     id: text("id").primaryKey(),
-    username: text("username").notNull(),
+    username: text("username").unique().notNull(),
     venmo: text("venmo").unique(),
-    email: text("email")
+    email: text("email").unique(),
   },
   (table) => {
     return {

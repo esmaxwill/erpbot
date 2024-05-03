@@ -4,5 +4,5 @@ export type Bindings = {
   DISCORD_CLIENT_SECRET: string;
   REDIRECT_DOMAIN: string;
   COOKIE_SECRET: string;
-  STATESMAN: any;
+  Users: any;
 };

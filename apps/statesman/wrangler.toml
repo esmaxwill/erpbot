@@ -11,4 +11,4 @@ port = 8081
 [[services]]
 binding = "STATESMAN"
 service = "randobot-statesman"
-entrypoint = "Statesman"
+entrypoint = "Users"

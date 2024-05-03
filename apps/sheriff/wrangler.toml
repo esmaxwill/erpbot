@@ -8,9 +8,9 @@ workers_dev = false
 port = 8080
 
 [[services]]
-binding = "STATESMAN"
+binding = "Users"
 service = "randobot-statesman"
-entrypoint = "Statesman"
+entrypoint = "Users"
 
 [vars]
 REDIRECT_DOMAIN = "randobot.app"
