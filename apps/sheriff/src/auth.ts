@@ -77,8 +77,6 @@ app.get("/logout", async (c: Context) => {
 
 app.get("/login", (c: Context) => {
   const state = crypto.randomUUID();
-  console.log(c.env.REDIRECT_DOMAIN);
-
   return c.redirect(
     `https://discord.com/oauth2/authorize?client_id=${c.env.DISCORD_CLIENT_ID}&response_type=code&redirect_uri=https%3A%2F%2F${c.env.REDIRECT_DOMAIN}%2Fauth%2Fcallback&scope=identify&state=${state}`,
     307,
