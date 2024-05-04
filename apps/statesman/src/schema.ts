@@ -1,4 +1,6 @@
-import { index, pgTable, text } from "drizzle-orm/pg-core";
+import { index, pgTable, text, timestamp } from "drizzle-orm/pg-core";
+
+import { generateId } from "@repo/common";
 
 export const users = pgTable(
   "users",
@@ -16,3 +18,13 @@ export const users = pgTable(
     };
   },
 );
+
+export const games = pgTable("games", {
+  id: text("id").primaryKey().$defaultFn(generateId),
+  createdAt: timestamp("created_at", { withTimezone: true })
+    .notNull()
+    .defaultNow(),
+  startsAt: timestamp("starts_at", { withTimezone: true }),
+  venmo: text("venmo").unique(),
+  email: text("email").unique(),
+});

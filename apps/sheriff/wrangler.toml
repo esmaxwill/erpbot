@@ -4,6 +4,8 @@ compatibility_flags = ["nodejs_compat"]
 
 workers_dev = false
 
+route = { pattern = "sipbot.app/*", zone_name = "sipbot.app" }
+
 [dev]
 port = 8080
 
@@ -13,5 +15,5 @@ service = "randobot-statesman"
 entrypoint = "Users"
 
 [vars]
-REDIRECT_DOMAIN = "randobot.app"
-DISCORD_REDIRECT_URI="https://randobot.app/auth/callback"
+REDIRECT_DOMAIN = "sipbot.app"
+DISCORD_REDIRECT_URI="https://sipbot.app/auth/callback"

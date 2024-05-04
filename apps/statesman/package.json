@@ -5,14 +5,13 @@
   "scripts": {
     "dev": "wrangler dev ./src/index.ts --local",
     "deploy": "wrangler deploy --minify src/index.ts",
-    "db:generate": "drizzle-kit generate:pg",
+    "db:makemigrations": "drizzle-kit generate:pg",
     "db:migrate": "tsx migrate.ts",
     "logs": "wrangler tail"
   },
   "dependencies": {
     "@neondatabase/serverless": "^0.9.1",
     "@repo/common": "workspace:*",
-    "better-sqlite3": "^9.6.0",
     "drizzle-orm": "^0.30.10",
     "hono": "^4.3.0",
     "tsx": "^4.9.0",

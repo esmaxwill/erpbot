@@ -5,7 +5,14 @@ compatibility_flags = ["nodejs_compat"]
 
 workers_dev = false
 
+route = { pattern = "banker.sipbot.app/*", zone_name = "sipbot.app" }
+
+
 [dev]
 port = 8082
 
+[[services]]
+binding = "Users"
+service = "randobot-statesman"
+entrypoint = "Users"
 

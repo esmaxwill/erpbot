@@ -11,5 +11,4 @@ const app = new Hono<{ Bindings: Bindings }>();
 
 app.route("/auth", auth.default);
 
-
 export default app;

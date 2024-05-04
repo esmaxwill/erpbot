@@ -1,13 +1,17 @@
 import { Hono, Context } from "hono";
 import { Bindings } from "./bindings";
 import { HTTPException } from "hono/http-exception";
-import { getCookie, getSignedCookie, setCookie, setSignedCookie, deleteCookie } from 'hono/cookie';
-import { Buffer } from 'node:buffer';
-
+import {
+  getCookie,
+  getSignedCookie,
+  setCookie,
+  setSignedCookie,
+  deleteCookie,
+} from "hono/cookie";
+import { Buffer } from "node:buffer";
 
 const API_ENDPOINT = "https://discord.com/api/v10";
 const COOKIE_NAME = "Session";
-
 
 interface TokenResponse {
   token_type: string;
@@ -70,10 +74,9 @@ async function getUserInfo(
 const app = new Hono<{ Bindings: Bindings }>();
 
 app.get("/logout", async (c: Context) => {
-  await deleteCookie(c, COOKIE_NAME, {prefix: 'secure'})
-  return c.text("Logged out.")
+  await deleteCookie(c, COOKIE_NAME, { prefix: "secure" });
+  return c.text("Logged out.");
 });
-
 
 app.get("/login", (c: Context) => {
   const state = crypto.randomUUID();
@@ -95,18 +98,21 @@ app.get("/callback", async (c: Context) => {
   const userInfo = await getUserInfo(c, response);
 
   try {
-    await c.env.Users.createUser({id: userInfo.user.id, username: userInfo.user.username});
-  }
-  
-  catch(error) {
+    await c.env.Users.createUser({
+      id: userInfo.user.id,
+      username: userInfo.user.username,
+    });
+  } catch (error) {
     console.log("Caught error: ", error);
   }
 
-  const cookieData = Buffer.from(JSON.stringify({...userInfo.user})).toString("base64url");
+  const cookieData = Buffer.from(JSON.stringify({ ...userInfo.user })).toString(
+    "base64url",
+  );
 
   await setSignedCookie(c, COOKIE_NAME, cookieData, c.env.COOKIE_SECRET, {
-    prefix: 'secure', // or `host`
-  })
+    prefix: "secure", // or `host`
+  });
 
   return c.json(userInfo);
 });

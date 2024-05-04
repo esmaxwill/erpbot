@@ -1,5 +1,3 @@
-
-
 // function deprecatedMethod(target: Function, context) {
 //     if (context.kind === "method") {
 //       return  (...args: any[]) => {
