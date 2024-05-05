@@ -13,7 +13,7 @@ export interface DecryptOpts {
 export interface KeyFormat<T extends string | CryptoKey> {
   id?: string;
   pk: T;
-  sk?: T
+  sk?: T;
 }
 
 export interface EncryptedMessageFormat<T extends string | Buffer> {

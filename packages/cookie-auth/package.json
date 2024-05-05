@@ -1,0 +1,23 @@
+{
+  "name": "@repo/cookie-auth",
+  "description": "Cookie middleware for Hono",
+  "scripts": {
+    "build": "tsc"
+  },
+  "dependencies": {
+    "hono": "^4.3.2",
+    "hpke-js": "^1.2.7"
+  },
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "exports": {
+    ".": "./src/index.ts"
+  },
+  "devDependencies": {
+    "@repo/eslint-config": "workspace:*",
+    "@repo/typescript-config": "workspace:*",
+    "@types/node": "^20.12.8",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.4.5"
+  }
+}

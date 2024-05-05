@@ -1,7 +1,7 @@
 import { Hono, Context } from "hono";
 import { Bindings } from "./bindings";
 
-import {keygen} from "@repo/lockbox";
+import { keygen } from "@repo/lockbox";
 
 import * as auth from "./auth";
 
@@ -19,7 +19,9 @@ app.get("/keygen", async (c) => {
 
 app.get("/keygen/:seed", async (c) => {
   const seed = c.req.param("seed");
-  return c.json(await keygen.deterministic(c.env.KEY_INFO, new TextEncoder().encode(seed)));
+  return c.json(
+    await keygen.deterministic(c.env.KEY_INFO, new TextEncoder().encode(seed)),
+  );
 });
 
 export default app;
