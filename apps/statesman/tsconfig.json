@@ -1,5 +1,6 @@
 {
-    "extends": "@repo/typescript-config/worker.json",
-    "compilerOptions": { "types": ["@cloudflare/workers-types/2023-07-01", "node/buffer"] }
+  "extends": "@repo/typescript-config/worker.json",
+  "compilerOptions": {
+    "types": ["@cloudflare/workers-types/2023-07-01", "node/buffer"]
   }
-  
+}

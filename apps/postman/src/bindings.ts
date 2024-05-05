@@ -1,4 +1,3 @@
 export type Bindings = {
-    EASYPOST_API_KEY: string;
-  };
-  
+  EASYPOST_API_KEY: string;
+};

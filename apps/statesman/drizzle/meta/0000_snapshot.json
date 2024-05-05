@@ -36,23 +36,17 @@
       "indexes": {
         "username_idx": {
           "name": "username_idx",
-          "columns": [
-            "username"
-          ],
+          "columns": ["username"],
           "isUnique": false
         },
         "venmo_idx": {
           "name": "venmo_idx",
-          "columns": [
-            "venmo"
-          ],
+          "columns": ["venmo"],
           "isUnique": false
         },
         "email_idx": {
           "name": "email_idx",
-          "columns": [
-            "email"
-          ],
+          "columns": ["email"],
           "isUnique": false
         }
       },
@@ -62,9 +56,7 @@
         "users_venmo_unique": {
           "name": "users_venmo_unique",
           "nullsNotDistinct": false,
-          "columns": [
-            "venmo"
-          ]
+          "columns": ["venmo"]
         }
       }
     }
