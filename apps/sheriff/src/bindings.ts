@@ -5,4 +5,5 @@ export type Bindings = {
   REDIRECT_DOMAIN: string;
   COOKIE_SECRET: string;
   Users: any;
+  KEY_INFO: string;
 };
