@@ -1,17 +1,11 @@
 import { cipher } from "./suite";
 import { Buffer } from "node:buffer";
 
-export interface EncryptOpts {
-  recipientPublicKey: CryptoKey;
-  info?: ArrayBuffer;
-}
-
-export interface EncryptedMessageFormat {
-  ct: string;
-  enc: string;
-}
-
-export type EncryptedMessage = string;
+import type {
+  EncryptOpts,
+  EncryptedMessage,
+  EncryptedMessageFormat,
+} from "./types";
 
 export async function encrypt(
   plaintext: string,
