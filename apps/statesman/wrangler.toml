@@ -1,4 +1,4 @@
-name = "randobot-statesman"
+name = "erpbot-statesman"
 
 workers_dev = false
 
@@ -10,12 +10,12 @@ port = 8081
 
 [[services]]
 binding = "STATESMAN"
-service = "randobot-statesman"
+service = "erpbot-statesman"
 entrypoint = "Users"
 
 [[services]]
 binding = "STATESMAN"
-service = "randobot-statesman"
+service = "erpbot-statesman"
 entrypoint = "Shipments"
 
 # [durable_objects]
