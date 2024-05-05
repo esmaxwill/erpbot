@@ -1,5 +1,5 @@
 {
-  "name": "@repo/postman",
+  "name": "@repo/dropship",
   "description": "Shipment management",
   "scripts": {
     "dev": "wrangler dev src/index.ts --local --port 8089",

@@ -59,7 +59,7 @@ importers:
         specifier: workspace:*
         version: link:../../packages/typescript-config
 
-  apps/postman:
+  apps/dropship:
     dependencies:
       '@easypost/api':
         specifier: ^7.3.0
