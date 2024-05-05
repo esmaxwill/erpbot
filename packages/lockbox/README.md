@@ -1,3 +1,3 @@
 # Lockbox
 
-Yeah, I'm rolling own crypto.  You wanna fight about it?
+Yeah, I'm rolling own crypto. You wanna fight about it?
