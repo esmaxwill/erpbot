@@ -10,6 +10,7 @@ export interface UserType {
   id: string;
   username: string;
   venmo?: string;
+  publicKey?: string;
 }
 
 export class Users extends WorkerEntrypoint<Env> {

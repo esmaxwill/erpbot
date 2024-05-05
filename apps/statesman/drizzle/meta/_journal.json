@@ -29,6 +29,27 @@
       "when": 1714796800501,
       "tag": "0003_workable_green_goblin",
       "breakpoints": true
+    },
+    {
+      "idx": 4,
+      "version": "5",
+      "when": 1714844576419,
+      "tag": "0004_harsh_lady_deathstrike",
+      "breakpoints": true
+    },
+    {
+      "idx": 5,
+      "version": "5",
+      "when": 1714916796705,
+      "tag": "0005_numerous_diamondback",
+      "breakpoints": true
+    },
+    {
+      "idx": 6,
+      "version": "5",
+      "when": 1714919307603,
+      "tag": "0006_plain_pixie",
+      "breakpoints": true
     }
   ]
 }

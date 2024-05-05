@@ -1,10 +1,13 @@
 {
-  "name": "@repo/common",
-  "description": "Common utilities",
+  "name": "@repo/lockbox",
+  "description": "Cryptography related utilities",
   "scripts": {
     "build": "tsc"
   },
   "dependencies": {
+    "@hpke/chacha20poly1305": "^1.2.7",
+    "@hpke/core": "^1.2.7",
+    "@hpke/dhkem-x25519": "^1.2.7",
     "ulid-workers": "^2.1.0"
   },
   "main": "dist/index.js",

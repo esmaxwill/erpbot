@@ -1,6 +1,6 @@
-{  
-    "$schema": "https://json.schemastore.org/tsconfig",
-    "compilerOptions": {
+{
+  "$schema": "https://json.schemastore.org/tsconfig",
+  "compilerOptions": {
     "esModuleInterop": true,
     "skipLibCheck": true,
     "target": "ESNext",

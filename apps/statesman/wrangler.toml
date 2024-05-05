@@ -12,3 +12,15 @@ port = 8081
 binding = "STATESMAN"
 service = "randobot-statesman"
 entrypoint = "Users"
+
+[[services]]
+binding = "STATESMAN"
+service = "randobot-statesman"
+entrypoint = "Shipments"
+
+# [durable_objects]
+# bindings = [{name = "Users", class_name = "Users"}]
+
+# [[migrations]]
+# tag = "v1" # Should be unique for each entry
+# new_classes = ["Users"]

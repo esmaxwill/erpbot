@@ -1,0 +1,26 @@
+name = "randobot-postman"
+
+compatibility_date = "2024-04-03"
+compatibility_flags = ["nodejs_compat"]
+
+workers_dev = false
+
+route = { pattern = "postman.sipbot.app/*", zone_name = "sipbot.app" }
+
+[dev]
+port = 8089
+
+[[services]]
+binding = "Users"
+service = "randobot-statesman"
+entrypoint = "Users"
+
+[[services]]
+binding = "STATESMAN"
+service = "randobot-statesman"
+entrypoint = "Shipments"
+
+[[services]]
+binding = "STATESMAN"
+service = "randobot-statesman"
+entrypoint = "Addresses"

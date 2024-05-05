@@ -1,11 +1,12 @@
 {
-  "name": "@repo/common",
-  "description": "Common utilities",
+  "name": "@repo/models",
+  "description": "Database models",
   "scripts": {
     "build": "tsc"
   },
   "dependencies": {
-    "ulid-workers": "^2.1.0"
+    "ulid-workers": "^2.1.0",
+    "zod": "^3.23.6"
   },
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
