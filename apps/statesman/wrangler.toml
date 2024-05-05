@@ -9,12 +9,12 @@ compatibility_flags = ["nodejs_compat"]
 port = 8081
 
 [[services]]
-binding = "STATESMAN"
+binding = "Users"
 service = "erpbot-statesman"
 entrypoint = "Users"
 
 [[services]]
-binding = "STATESMAN"
+binding = "Shipments"
 service = "erpbot-statesman"
 entrypoint = "Shipments"
 
