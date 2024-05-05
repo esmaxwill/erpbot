@@ -1,11 +1,11 @@
-name = "randobot-postman"
+name = "randobot-dropship"
 
 compatibility_date = "2024-04-03"
 compatibility_flags = ["nodejs_compat"]
 
 workers_dev = false
 
-route = { pattern = "postman.sipbot.app/*", zone_name = "sipbot.app" }
+route = { pattern = "dropship.sipbot.app/*", zone_name = "sipbot.app" }
 
 [dev]
 port = 8089
