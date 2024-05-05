@@ -3,14 +3,14 @@ import { Buffer } from "node:buffer";
 
 import type {
   EncryptOpts,
-  EncryptedMessage,
   EncryptedMessageFormat,
+  SerializedMessage,
 } from "./types";
 
 export async function encrypt(
   plaintext: string,
   opts: EncryptOpts,
-): Promise<EncryptedMessage> {
+): Promise<SerializedMessage> {
   const sender = await cipher.createSenderContext({
     ...opts,
   });
@@ -19,7 +19,7 @@ export async function encrypt(
 
   const ciphertext = await sender.seal(new TextEncoder().encode(plaintext));
 
-  const format: EncryptedMessageFormat = {
+  const format: EncryptedMessageFormat<string> = {
     ct: Buffer.from(ciphertext).toString("base64url"),
     enc: Buffer.from(enc).toString("base64url"),
   };
