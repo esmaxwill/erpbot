@@ -10,6 +10,12 @@ export interface DecryptOpts {
   info?: ArrayBuffer;
 }
 
+export interface KeyFormat<T extends string | CryptoKey> {
+  id?: string;
+  pk: T;
+  sk?: T
+}
+
 export interface EncryptedMessageFormat<T extends string | Buffer> {
   ct: T;
   enc: T;

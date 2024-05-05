@@ -1,4 +1,4 @@
-import { cipher } from "./suite";
+import { suite } from "./suite";
 import { Buffer } from "node:buffer";
 
 import type {
@@ -11,7 +11,7 @@ export async function encrypt(
   plaintext: string,
   opts: EncryptOpts,
 ): Promise<SerializedMessage> {
-  const sender = await cipher.createSenderContext({
+  const sender = await suite.createSenderContext({
     ...opts,
   });
 

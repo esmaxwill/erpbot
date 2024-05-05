@@ -1,4 +1,4 @@
-export { keygen } from "./keygen";
+export * as keygen from "./keygen";
 export { encrypt } from "./encrypt";
 export { decrypt } from "./decrypt";
 

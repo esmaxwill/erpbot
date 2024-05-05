@@ -1,4 +1,4 @@
-import { cipher } from "./suite";
+import { suite } from "./suite";
 import { Buffer } from "node:buffer";
 
 import type {
@@ -28,7 +28,7 @@ export async function decrypt(
   opts: DecryptOpts,
 ): Promise<Message> {
   const messageFormat = _deserializeMessage(ciphertext);
-  const recipient = await cipher.createRecipientContext({
+  const recipient = await suite.createRecipientContext({
     ...opts,
     enc: messageFormat.enc,
   });

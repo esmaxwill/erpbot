@@ -1,12 +1,7 @@
-import {
-  Aes128Gcm,
-  CipherSuite,
-  DhkemP256HkdfSha256,
-  HkdfSha256,
-} from "@hpke/core";
+import { AeadId, CipherSuite, KdfId, KemId } from "hpke-js";
 
-export const cipher = new CipherSuite({
-  kem: new DhkemP256HkdfSha256(),
-  kdf: new HkdfSha256(),
-  aead: new Aes128Gcm(),
+export const suite = new CipherSuite({
+  kem: KemId.DhkemX25519HkdfSha256,
+  kdf: KdfId.HkdfSha256,
+  aead: AeadId.Aes128Gcm,
 });
