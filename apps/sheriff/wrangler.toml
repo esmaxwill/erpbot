@@ -4,7 +4,7 @@ compatibility_flags = ["nodejs_compat"]
 
 workers_dev = false
 
-route = { pattern = "sipbot.app/*", zone_name = "sipbot.app" }
+route = { pattern = "erpbot.app/*", zone_name = "erpbot.app" }
 
 [dev]
 port = 8080
@@ -15,5 +15,5 @@ service = "erpbot-statesman"
 entrypoint = "Users"
 
 [vars]
-REDIRECT_DOMAIN = "sipbot.app"
-DISCORD_REDIRECT_URI="https://sipbot.app/auth/callback"
+REDIRECT_DOMAIN = "erpbot.app"
+DISCORD_REDIRECT_URI="https://erpbot.app/auth/callback"

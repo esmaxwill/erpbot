@@ -5,7 +5,7 @@ compatibility_flags = ["nodejs_compat"]
 
 workers_dev = false
 
-route = { pattern = "banker.sipbot.app/*", zone_name = "sipbot.app" }
+route = { pattern = "banker.erpbot.app/*", zone_name = "erpbot.app" }
 
 
 [dev]

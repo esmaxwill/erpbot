@@ -5,7 +5,7 @@ compatibility_flags = ["nodejs_compat"]
 
 workers_dev = false
 
-route = { pattern = "dropship.sipbot.app/*", zone_name = "sipbot.app" }
+route = { pattern = "dropship.erpbot.app/*", zone_name = "erpbot.app" }
 
 [dev]
 port = 8089
