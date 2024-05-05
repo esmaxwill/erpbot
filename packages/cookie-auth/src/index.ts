@@ -20,3 +20,5 @@ export const cookieMiddleware = <T extends Env>(opts: CookieMiddlewareOpts) => {
     await next();
   });
 };
+
+export { CookieMiddlewareOpts };
