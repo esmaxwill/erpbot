@@ -1,4 +1,4 @@
-import { suite } from "../suite";
+import { suite } from "./suite";
 import { Buffer } from "node:buffer";
 
 import type {

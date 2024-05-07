@@ -1,4 +1,4 @@
-import { suite } from "../suite";
+import { suite } from "./suite";
 import { KeyFormat } from "../types";
 import { Buffer } from "node:buffer";
 
