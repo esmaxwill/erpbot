@@ -4,7 +4,7 @@ compatibility_flags = ["nodejs_compat"]
 
 workers_dev = false
 
-route = { pattern = "erpbot.app/*", zone_name = "erpbot.app" }
+route = { pattern = "erpbot.app/auth/*", zone_name = "erpbot.app" }
 
 [dev]
 port = 8080
