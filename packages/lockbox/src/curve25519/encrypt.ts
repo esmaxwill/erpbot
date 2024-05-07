@@ -1,11 +1,11 @@
-import { suite } from "./suite";
+import { suite } from "../suite";
 import { Buffer } from "node:buffer";
 
 import type {
   EncryptOpts,
   EncryptedMessageFormat,
   SerializedMessage,
-} from "./types";
+} from "../types";
 
 export async function encrypt(
   plaintext: string,

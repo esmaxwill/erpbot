@@ -11,7 +11,6 @@ export interface DecryptOpts {
 }
 
 export interface KeyFormat<T extends string | CryptoKey> {
-  id?: string;
   pk: T;
   sk?: T;
 }

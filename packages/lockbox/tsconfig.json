@@ -3,6 +3,6 @@
   "compilerOptions": {
     "outDir": "dist"
   },
-  "include": ["src"],
+  "include": ["src/**.ts", "src/curve25519/decrypt.ts", "src/curve25519/encrypt.ts"],
   "exclude": ["node_modules", "dist"]
 }

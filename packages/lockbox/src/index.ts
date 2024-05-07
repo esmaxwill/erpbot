@@ -1,5 +1,3 @@
-export * as keygen from "./keygen";
-export { encrypt } from "./encrypt";
-export { decrypt } from "./decrypt";
+export * as curve25519 from "./curve25519";
 
 export type * from "./types";

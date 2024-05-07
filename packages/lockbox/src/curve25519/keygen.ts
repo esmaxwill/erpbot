@@ -1,15 +1,13 @@
-import { suite } from "./suite";
-import { KeyFormat } from "./types";
+import { suite } from "../suite";
+import { KeyFormat } from "../types";
 import { Buffer } from "node:buffer";
 
-export async function generate(): Promise<KeyFormat<string>> {
-  const id = crypto.randomUUID();
+export async function random(): Promise<KeyFormat<string>> {
   const kp = await suite.kem.generateKeyPair();
   const pk = await suite.kem.serializePublicKey(kp.publicKey);
   const sk = await suite.kem.serializePrivateKey(kp.privateKey);
 
   return {
-    id,
     pk: Buffer.from(pk).toString("base64url"),
     sk: Buffer.from(sk).toString("base64url"),
   };
@@ -20,7 +18,6 @@ export async function deterministic(
   seed: ArrayBuffer,
 ): Promise<KeyFormat<string>> {
   const salt = Buffer.from(info, "base64");
-  const id = (await crypto.subtle.digest("SHA-256", seed)).slice(0, 12);
   const ikm = await crypto.subtle.importKey("raw", seed, "PBKDF2", false, [
     "deriveBits",
   ]);
@@ -41,7 +38,6 @@ export async function deterministic(
   const sk = await suite.kem.serializePrivateKey(kp.privateKey);
 
   return {
-    id: undefined,
     pk: Buffer.from(pk).toString("base64url"),
     sk: Buffer.from(sk).toString("base64url"),
   };
