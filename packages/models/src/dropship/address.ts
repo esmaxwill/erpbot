@@ -21,7 +21,7 @@ import { z } from "zod";
 // verifications	Verifications	The result of any verifications requested
 
 export const AddressSchema = z.object({
-  id: z.string().ulid(),
+  id: z.string().regex(/^adr_[a-zA-Z0-9]+$/),
   discord_user_id: z.string(),
   street1: z.string(),
   street2: z.string().optional(),
