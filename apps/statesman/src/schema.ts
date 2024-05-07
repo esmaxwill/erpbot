@@ -41,7 +41,18 @@ export const shipments = pgTable("shipments", {
   data: json("data").default({}),
 });
 
-export const addresses = pgTable("addresses", {
-  id: text("id").primaryKey().$defaultFn(generateId),
-  data: json("data").default({}),
-});
+export const addresses = pgTable(
+  "addresses",
+  {
+    id: text("id").primaryKey().$defaultFn(generateId),
+    apiId: text("api_id").unique(),
+    discordUserId: text("discord_user_id"),
+    encrypted_blob: text("encrypted_blob"),
+  },
+  (table) => {
+    return {
+      apiIdIdx: index("api_id_idx").on(table.apiId),
+      discordUserIdIdx: index("discord_user_id_idx").on(table.discordUserId),
+    };
+  },
+);

@@ -20,9 +20,15 @@ import { z } from "zod";
 // state_tax_id	string	State tax identifier of the person or organization
 // verifications	Verifications	The result of any verifications requested
 
-export const AddressSchema = z.object({
-  id: z.string().regex(/^adr_[a-zA-Z0-9]+$/),
+export const AddressInfoSchema = z.object({
+  id: z.string().ulid(),
+  api_id: z.string().regex(/^adr_[a-zA-Z0-9]+$/),
   discord_user_id: z.string(),
+});
+
+export type AddressInfo = z.infer<typeof AddressInfoSchema>;
+
+export const AddressSchema = z.object({
   street1: z.string(),
   street2: z.string().optional(),
   city: z.string(),
