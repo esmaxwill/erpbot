@@ -29,8 +29,9 @@ export async function decrypt(
 ): Promise<Message> {
   const messageFormat = _deserializeMessage(ciphertext);
   const recipient = await suite.createRecipientContext({
-    ...opts,
+    recipientKey: opts.recipientPrivateKey,
     enc: messageFormat.enc,
+    info: opts.info,
   });
 
   const plaintext = await recipient.open(messageFormat.ct);

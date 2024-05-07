@@ -8,7 +8,7 @@ import type {
 } from "../types";
 
 export async function encrypt(
-  plaintext: string,
+  plaintext: ArrayBuffer,
   opts: EncryptOpts,
 ): Promise<SerializedMessage> {
   const sender = await suite.createSenderContext({
@@ -16,7 +16,8 @@ export async function encrypt(
   });
 
   const enc = sender.enc;
-  const ciphertext = await sender.seal(new TextEncoder().encode(plaintext));
+  const ciphertext = await sender.seal(plaintext, opts.aad);
+  
   const format: EncryptedMessageFormat<string> = {
     ct: Buffer.from(ciphertext).toString("base64url"),
     enc: Buffer.from(enc).toString("base64url"),

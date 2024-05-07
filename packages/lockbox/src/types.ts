@@ -3,11 +3,13 @@ import { Buffer } from "node:buffer";
 export interface EncryptOpts {
   recipientPublicKey: CryptoKey;
   info?: ArrayBuffer;
+  aad?: ArrayBuffer;
 }
 
 export interface DecryptOpts {
-  recipientKey: CryptoKey;
+  recipientPrivateKey: CryptoKey;
   info?: ArrayBuffer;
+  aad?: ArrayBuffer;
 }
 
 export interface KeyFormat<T extends string | CryptoKey> {
