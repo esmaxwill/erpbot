@@ -50,6 +50,13 @@
       "when": 1714919307603,
       "tag": "0006_plain_pixie",
       "breakpoints": true
+    },
+    {
+      "idx": 7,
+      "version": "5",
+      "when": 1715087427342,
+      "tag": "0007_third_khan",
+      "breakpoints": true
     }
   ]
 }
