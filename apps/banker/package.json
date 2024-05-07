@@ -9,6 +9,7 @@
   "dependencies": {
     "@paypal/paypal-js": "^8.0.5",
     "@repo/common": "workspace:^",
+    "@repo/cookie-auth": "workspace:*",
     "hono": "^4.1.3",
     "zod": "^3.22.4"
   },
