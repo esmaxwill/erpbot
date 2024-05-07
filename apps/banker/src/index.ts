@@ -9,6 +9,5 @@ declare module "hono" {
 
 const app = new Hono<{ Bindings: Bindings }>();
 
-app.use("*", cookieMiddleware<{Bindings: Bindings}>({ cookieName: "session" }));
 
 export default app;
