@@ -17,7 +17,7 @@ export async function encrypt(
 
   const enc = sender.enc;
   const ciphertext = await sender.seal(plaintext, opts.aad);
-  
+
   const format: EncryptedMessageFormat<string> = {
     ct: Buffer.from(ciphertext).toString("base64url"),
     enc: Buffer.from(enc).toString("base64url"),

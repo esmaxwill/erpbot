@@ -36,16 +36,12 @@
       "indexes": {
         "api_id_idx": {
           "name": "api_id_idx",
-          "columns": [
-            "api_id"
-          ],
+          "columns": ["api_id"],
           "isUnique": false
         },
         "discord_user_id_idx": {
           "name": "discord_user_id_idx",
-          "columns": [
-            "discord_user_id"
-          ],
+          "columns": ["discord_user_id"],
           "isUnique": false
         }
       },
@@ -55,9 +51,7 @@
         "addresses_api_id_unique": {
           "name": "addresses_api_id_unique",
           "nullsNotDistinct": false,
-          "columns": [
-            "api_id"
-          ]
+          "columns": ["api_id"]
         }
       }
     },
@@ -104,16 +98,12 @@
         "games_venmo_unique": {
           "name": "games_venmo_unique",
           "nullsNotDistinct": false,
-          "columns": [
-            "venmo"
-          ]
+          "columns": ["venmo"]
         },
         "games_email_unique": {
           "name": "games_email_unique",
           "nullsNotDistinct": false,
-          "columns": [
-            "email"
-          ]
+          "columns": ["email"]
         }
       }
     },
@@ -201,30 +191,22 @@
       "indexes": {
         "username_idx": {
           "name": "username_idx",
-          "columns": [
-            "username"
-          ],
+          "columns": ["username"],
           "isUnique": false
         },
         "venmo_idx": {
           "name": "venmo_idx",
-          "columns": [
-            "venmo"
-          ],
+          "columns": ["venmo"],
           "isUnique": false
         },
         "email_idx": {
           "name": "email_idx",
-          "columns": [
-            "email"
-          ],
+          "columns": ["email"],
           "isUnique": false
         },
         "public_key_idx": {
           "name": "public_key_idx",
-          "columns": [
-            "public_key"
-          ],
+          "columns": ["public_key"],
           "isUnique": false
         }
       },
@@ -234,23 +216,17 @@
         "users_username_unique": {
           "name": "users_username_unique",
           "nullsNotDistinct": false,
-          "columns": [
-            "username"
-          ]
+          "columns": ["username"]
         },
         "users_venmo_unique": {
           "name": "users_venmo_unique",
           "nullsNotDistinct": false,
-          "columns": [
-            "venmo"
-          ]
+          "columns": ["venmo"]
         },
         "users_email_unique": {
           "name": "users_email_unique",
           "nullsNotDistinct": false,
-          "columns": [
-            "email"
-          ]
+          "columns": ["email"]
         }
       }
     }
