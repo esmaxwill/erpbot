@@ -1,4 +1,4 @@
-import { Hono} from "hono";
+import { Hono } from "hono";
 import { Bindings } from "./bindings";
 
 import { keygen } from "@repo/lockbox";
@@ -12,7 +12,7 @@ const app = new Hono<{ Bindings: Bindings }>();
 
 app.route("/auth", auth.default);
 
-app.use("*", )
+app.use("*");
 
 app.get("/keygen", async (c) => {
   return c.json(await keygen.generate());

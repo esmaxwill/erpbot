@@ -1,4 +1,4 @@
 export interface CookieMiddlewareOpts {
-    cookieName: string;
-    redirectToOnFailure?: string;
+  cookieName: string;
+  redirectToOnFailure?: string;
 }
