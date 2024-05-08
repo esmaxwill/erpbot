@@ -6,7 +6,7 @@ import type {
   Message,
   EncryptedMessageFormat,
   SerializedMessage,
-} from "../types";
+} from "./types";
 
 function _deserializeMessage(
   message: SerializedMessage,

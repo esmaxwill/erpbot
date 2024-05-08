@@ -1,5 +1,5 @@
 import { suite } from "./suite";
-import { KeyFormat } from "../types";
+import { KeyFormat } from "./types";
 import { Buffer } from "node:buffer";
 
 export async function random(): Promise<KeyFormat<string>> {

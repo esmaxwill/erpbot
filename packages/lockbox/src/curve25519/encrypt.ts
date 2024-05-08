@@ -5,7 +5,7 @@ import type {
   EncryptOpts,
   EncryptedMessageFormat,
   SerializedMessage,
-} from "../types";
+} from "./types";
 
 export async function encrypt(
   plaintext: ArrayBuffer,

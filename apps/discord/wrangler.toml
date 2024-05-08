@@ -1,0 +1,30 @@
+name = "erpbot-discord"
+
+compatibility_date = "2024-04-03"
+compatibility_flags = ["nodejs_compat"]
+
+workers_dev = false
+
+route = { pattern = "erpbot.app/discord/interactions", zone_name = "erpbot.app" }
+
+[dev]
+port = 8090
+
+[[services]]
+binding = "Users"
+service = "erpbot-statesman"
+entrypoint = "Users"
+
+[[services]]
+binding = "Shipments"
+service = "erpbot-statesman"
+entrypoint = "Shipments"
+
+[[services]]
+binding = "Addresses"
+service = "erpbot-statesman"
+entrypoint = "Addresses"
+
+[vars]
+PUBLIC_KEY="884ed8a48eb410ab50b635f39fc4f413b92f3a08d355a6d302d84fb02af04e13"
+APP_ID="1226202945201246329"
