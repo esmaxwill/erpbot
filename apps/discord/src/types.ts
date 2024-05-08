@@ -1,4 +1,13 @@
-import { InteractionType, InteractionResponseType } from "discord-interactions";
+import {
+  InteractionType,
+  InteractionResponseType,
+  type ActionRow,
+} from "discord-interactions";
+
+export interface Env {
+  APP_ID: string;
+  PUBLIC_KEY: string;
+}
 
 export interface Entitlement {
   id: string;
@@ -21,6 +30,11 @@ export interface InteractionData {
   options?: any[];
   guild_id?: string;
   target_id?: string;
+}
+
+export interface InteractionDataModal {
+  custom_id: string;
+  components: ActionRow[];
 }
 
 export interface User {
