@@ -1,0 +1,19 @@
+name = "erpbot-randman"
+compatibility_date = "2024-04-03"
+compatibility_flags = ["nodejs_compat"]
+
+workers_dev = false
+
+route = { pattern = "erpbot.app/random/*", zone_name = "erpbot.app" }
+
+[dev]
+port = 8080
+
+[[services]]
+binding = "Users"
+service = "erpbot-statesman"
+entrypoint = "Users"
+
+[vars]
+REDIRECT_DOMAIN = "erpbot.app"
+DISCORD_REDIRECT_URI="https://erpbot.app/auth/callback"
