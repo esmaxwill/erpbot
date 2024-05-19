@@ -60,7 +60,11 @@ app.post("/round/:round", async (c) => {
 });
 
 app.get("/time/:timestamp", async (c) => {
-  const timestamp = parseInt(c.req.param("timestamp"));
+  let timestamp = parseInt(c.req.param("timestamp"));
+  if (!timestamp) {
+    timestamp = Math.floor(new Date().getTime() / 1000);
+  }
+
   const time = new Date(timestamp * 1000);
   try {
     const beacon = await manager.getForTime(time);
