@@ -112,7 +112,7 @@ app.get("/callback", async (c: Context) => {
 
   await setSignedCookie(c, COOKIE_NAME, cookieData, c.env.COOKIE_SECRET, {
     prefix: "secure", // or `host`
-    domain: "randtools.erpbot.app"
+    domain: "randtools.erpbot.app",
   });
 
   return c.json(userInfo);

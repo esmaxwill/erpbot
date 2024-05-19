@@ -28,7 +28,6 @@ export async function handleStartNewShipment(
   });
 }
 
-
 export async function handleNewShipmentSubmit(
   env: Env,
   context: Interaction,
