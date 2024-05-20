@@ -12,11 +12,14 @@ jobs:
       - name: Setup pnpm
         uses: pnpm/action-setup@v4.0.0
 
-      - name: Build & Deploy Worker
-        uses: cloudflare/wrangler-action@v3.5.0
-        with:
-          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
-          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
-          packageManager: pnpm
-          preCommands: "turbo build"
-          command: "pnpm -r deploy"
+      - name: Build packages
+        run: turbo build
+        
+      # - name: Build & Deploy Worker
+      #   uses: cloudflare/wrangler-action@v3.5.0
+      #   with:
+      #     apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+      #     accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+      #     packageManager: pnpm
+      #     preCommands: "turbo build"
+      #     command: "pnpm -r deploy"
