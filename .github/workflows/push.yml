@@ -27,6 +27,12 @@ jobs:
       - name: Build packages
         run: turbo build
 
+      - name: Deploy workers
+        run: pnpm -r deploy
+        env:
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+
       # - name: Build & Deploy Worker
       #   uses: cloudflare/wrangler-action@v3.5.0
       #   with:
