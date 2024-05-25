@@ -12,7 +12,7 @@ interface RandomRequest {
 }
 
 app.get("/info", async (c) => {
-  const info = await manager.getInfo();
+  const info = await manager.getChainInfo();
   return c.json(info);
 });
 
@@ -23,8 +23,10 @@ app.get("/round/:round/:min/:max/:numbers?", async (c) => {
   const min = parseInt(c.req.param("min"));
   const max = parseInt(c.req.param("max")) + 1;
   const numbers = parseInt(c.req.param("numbers") ?? "1");
-  const beacon = await manager.getForRound(round, wait);
-
+  const beaconPromise = manager.getBeaconForRound(round, wait);
+  c.executionCtx.waitUntil(beaconPromise);
+  const beacon = await beaconPromise;
+  
   if (!beacon) {
     throw new HTTPException(400, {
       message: "Beacon either not available yet or we're not waiting for it.",
@@ -45,7 +47,7 @@ app.get("/round/:round/:min/:max/:numbers?", async (c) => {
 app.post("/round/:round", async (c) => {
   const round = parseInt(c.req.param("round"));
   const wait = Boolean(c.req.query("wait")) ?? false;
-  const beacon = await manager.getForRound(round, wait);
+  const beacon = await manager.getBeaconForRound(round, wait);
 
   if (!beacon) {
     throw new HTTPException(400, {
@@ -67,7 +69,7 @@ app.get("/time/:timestamp", async (c) => {
 
   const time = new Date(timestamp * 1000);
   try {
-    const beacon = await manager.getForTime(time);
+    const beacon = await manager.getBeaconForTime(time);
     return c.json(beacon);
   } catch (e) {
     const round = await manager.getRoundNumberForTime(time);

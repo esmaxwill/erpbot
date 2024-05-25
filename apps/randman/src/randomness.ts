@@ -5,6 +5,7 @@ import {
   HttpCachingChain,
   roundAt,
   type RandomnessBeacon,
+  type ChainInfo,
 } from "drand-client";
 
 import { sleep } from "drand-client/util";
@@ -44,11 +45,11 @@ export class RandomnessManager {
     this.client = new HttpChainClient(this.chain, options);
   }
 
-  async getInfo() {
-    return await this.chain.info();
+  async getChainInfo(): Promise<ChainInfo> {
+    return this.chain.info();
   }
 
-  async getForRound(
+  async getBeaconForRound(
     round: number,
     wait = false,
   ): Promise<RandomnessBeacon | undefined> {
@@ -70,12 +71,12 @@ export class RandomnessManager {
     return roundAt(timestamp, await this.chain.info());
   }
 
-  async getForTime(time: Date): Promise<RandomnessBeacon> {
+  async getBeaconForTime(time: Date): Promise<RandomnessBeacon> {
     const timestamp = time.getTime();
     return await fetchBeaconByTime(this.client, timestamp);
   }
 
-  async getLatest(): Promise<RandomnessBeacon> {
+  async getLatestBeacon(): Promise<RandomnessBeacon> {
     return await fetchBeacon(this.client);
   }
 }
